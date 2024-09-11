@@ -10,7 +10,7 @@ var allTexts map[string]string = map[string]string{
 	"ABOUT": `
 ○ <b>Language</b>: <a href='https://go.dev'>GO</a>
 ○ <b>Library</b>: <a href='https://github.com/PaulSonOfLars/gotgbot'>GoTgbot</a>
-○ <b>Support</b>: <a href='https://FractalProjects'>Fractal</a>
+○ <b>Support</b>: <a href='https://t.me/am_films'>AM_FILMS</a>
 	`,
 
 	"HELP": `
@@ -35,7 +35,7 @@ Check /help to see how to use me.</i>
 }
 
 var allButtons map[string][][]gotgbot.InlineKeyboardButton = map[string][][]gotgbot.InlineKeyboardButton{
-	"ABOUT": {{homeButton, helpButton}, {{Text: "Source 🔗", Url: "https://github.com/Jisin0/filmigobot"}}},
+	"ABOUT": {{homeButton, helpButton}, {{Text: "Dev 🛠️", Url: "https://t.me/GUARDIANff"}}},
 	"HELP":  append(inlineSearchButtons, []gotgbot.InlineKeyboardButton{aboutButton, homeButton}),
 }
 
