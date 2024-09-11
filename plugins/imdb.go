@@ -74,7 +74,7 @@ func GetIMDbTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboar
 
 	var captionBuilder strings.Builder
 
-	captionBuilder.WriteString(fmt.Sprintf("<b>🎪 %s: <a href='%s'>%s", title.Type, title.URL, title.Title))
+	captionBuilder.WriteString(fmt.Sprintf("<b>🎬 %s: <a href='%s'>%s", title.Type, title.URL, title.Title))
 
 	if title.ReleaseYear != "" {
 		captionBuilder.WriteString(fmt.Sprintf(" (%s)", title.ReleaseYear))
@@ -83,11 +83,11 @@ func GetIMDbTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboar
 	captionBuilder.WriteString("</a></b>\n")
 
 	if title.Aka != "" {
-		captionBuilder.WriteString(fmt.Sprintf("   [ᴀᴋᴀ: <code>%s</code>]\n", title.Aka))
+		captionBuilder.WriteString(fmt.Sprintf("   [𝙰𝙺𝙰:- <code>%s</code>]\n", title.Aka))
 	}
 
 	if rating := title.Rating; rating.Value > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🏆 Usᴇʀ Rᴀᴛɪɴɢs: %.1f / 10 </b>", rating.Value))
+		captionBuilder.WriteString(fmt.Sprintf("<b>⭐ 𝚁𝚊𝚝𝚒𝚗𝚐: %.1f / 10 </b>", rating.Value))
 		captionBuilder.WriteString(fmt.Sprintf("<code>(based on %v votes ", rating.Votes))
 
 		if rating.Best > 0 {
@@ -98,15 +98,15 @@ func GetIMDbTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboar
 	}
 
 	if title.Releaseinfo != "" {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🗓 Rᴇʟᴇᴀsᴇ Iɴғᴏ:</b> <a href='%s'>%s</a>\n", title.URL+"releaseinfo", title.Releaseinfo))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🎞️𝚁𝚎𝚕𝚎𝚊𝚜𝚎 𝚒𝚗𝚏𝚘:-</b> <a href='%s'>%s</a>\n", title.URL+"releaseinfo", title.Releaseinfo))
 	}
 
 	if title.Runtime != "" {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🕰 Dᴜʀᴀᴛɪᴏɴ:</b> <code>%s</code>\n", parseIMDbDuration(title.Runtime)))
+		captionBuilder.WriteString(fmt.Sprintf("<b>⏱️𝙳𝚞𝚛𝚊𝚝𝚒𝚘𝚗 :-</b> <code>%s</code>\n", parseIMDbDuration(title.Runtime)))
 	}
 
 	if len(title.Languages) > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🎧 Lᴀɴɢᴜᴀɢᴇ:</b> %s\n", htmlLinkList(title.Languages, "|")))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🔊𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 :-</b> %s\n", htmlLinkList(title.Languages, "|")))
 	}
 
 	if len(title.Genres) > 0 {
