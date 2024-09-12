@@ -87,7 +87,7 @@ func GetIMDbTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboar
 	}
 
 	if rating := title.Rating; rating.Value > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>⭐ 𝚁𝚊𝚝𝚒𝚗𝚐: %.1f / 10 </b>", rating.Value))
+		captionBuilder.WriteString(fmt.Sprintf("<b>⭐𝚁𝚊𝚝𝚒𝚗𝚐 :- %.1f / 10 </b>", rating.Value))
 		captionBuilder.WriteString(fmt.Sprintf("<code>(based on %v votes ", rating.Votes))
 
 		if rating.Best > 0 {
