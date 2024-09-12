@@ -25,7 +25,7 @@ var (
 )
 
 var (
-	startSearchingButton = &gotgbot.InlineQueryResultsButton{Text: "Start typing the name of your movie to search ...", StartParameter: "nvm"}
+	startSearchingButton = &gotgbot.InlineQueryResultsButton{Text: "Start typing the name of your movie to search ...By @AM_FILMS", StartParameter: "nvm"}
 	searchResultsButton  = &gotgbot.InlineQueryResultsButton{Text: "Here Are Your Results 👇", StartParameter: "nvm2"}
 
 	notFoundImage = "https://telegra.ph/file/24788bfd2b087c292fbe2.jpg"
