@@ -132,25 +132,25 @@ func GetJWTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboardB
 	captionBuilder.WriteRune('\n')
 
 	if content.ExteranlIDs != nil && content.ExteranlIDs.ImdbID != "" {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🚦𝙸ᴍᴅʙ:</b> <i><a href='imdb.com/title/%s'>%s", content.ExteranlIDs.ImdbID, content.ExteranlIDs.ImdbID))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🚦𝙸𝙼𝙳𝙱:</b> <i><a href='imdb.com/title/%s'>%s", content.ExteranlIDs.ImdbID, content.ExteranlIDs.ImdbID))
 
 		if content.Scores != nil && content.Scores.ImdbRating > 0 {
-			captionBuilder.WriteString(fmt.Sprintf(" | %v/10 ⭐", content.Scores.ImdbRating))
+			captionBuilder.WriteString(fmt.Sprintf(" | %v/10 ⭐𝚁𝙰𝚃𝙸𝙽𝙶", content.Scores.ImdbRating))
 		}
 
 		captionBuilder.WriteString("</a></i>\n")
 	}
 
 	if content.ReleaseDate != "" {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🗓️ Rᴇʟᴇᴀsᴇᴅ:</b> %s\n", content.ReleaseDate))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🎞️𝚁𝚎𝚕𝚎𝚊𝚜𝚎 𝚒𝚗𝚏𝚘 :-</b> %s\n", content.ReleaseDate))
 	}
 
 	if content.Runtime != 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>📟 Rᴜɴᴛɪᴍᴇ:</b> %vmins\n", content.Runtime))
+		captionBuilder.WriteString(fmt.Sprintf("<b>⏱️𝙳𝚞𝚛𝚊𝚝𝚒𝚘𝚗 :-</b> %vmins\n", content.Runtime))
 	}
 
 	if len(*content.Genres) > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🎭 Gᴇɴʀᴇs:</b> <i>%s</i>\n", content.Genres.ToString(", ")))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🔖𝙶𝚎𝚗𝚛𝚎 :-</b> <i>%s</i>\n", content.Genres.ToString(", ")))
 	}
 
 	if len(title.Offers) > 0 {
@@ -264,7 +264,7 @@ func JWCommand(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 				photo = gotgbot.InputMediaPhoto{
 					Media:     gotgbot.InputFileByURL(jWBanner),
-					Caption:   fmt.Sprintf("<i>👋 Hey <tg-spoiler>%s</tg-spoiler> I've got %d Results for you 👇</i>", mention(ctx.EffectiveUser), len(results.Results)),
+					Caption:   fmt.Sprintf("<i>👋 Hey <tg-spoiler>%s</tg-spoiler> I've got %d Results for you 👇 Join Our Main Channel 👉 @AM_FILMS</i>", mention(ctx.EffectiveUser), len(results.Results)),
 					ParseMode: gotgbot.ParseModeHTML,
 				}
 			}
@@ -278,7 +278,7 @@ func JWCommand(bot *gotgbot.Bot, ctx *ext.Context) error {
 			ParseMode: gotgbot.ParseModeHTML,
 		}
 
-		buttons = [][]gotgbot.InlineKeyboardButton{{{Text: "Search On Google 🔎", Url: fmt.Sprintf("https://google.com/search?q=%s", url.QueryEscape(input))}}}
+		buttons = [][]gotgbot.InlineKeyboardButton{{{Text: "𝚂𝚎𝚊𝚛𝚌𝚑 𝚘𝚗 𝙶𝚐𝚘𝚐𝚕𝚎 🔎", Url: fmt.Sprintf("https://google.com/search?q=%s", url.QueryEscape(input))}}}
 	}
 
 	_, err = bot.SendPhoto(ctx.EffectiveChat.Id, photo.Media, &gotgbot.SendPhotoOpts{
