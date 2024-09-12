@@ -143,7 +143,7 @@ func GetOMDbTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboar
 
 	buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "🔗 𝚁𝚎𝚊𝚍 𝙼𝚘𝚛𝚎...", Url: url}})
 
-	buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "📥 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 📥", Url: "https://t.me/lizav01_bot"}})
+	buttons = append(buttons, [][]gotgbot.InlineKeyboardButton{{{Text: "📥 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 📥", Url: fmt.Sprintf("https://lizav01_bot?q=%s", url.QueryEscape(input))}}})
 
 	photo = gotgbot.InputMediaPhoto{
 		Media:      gotgbot.InputFileByURL(title.Poster),
