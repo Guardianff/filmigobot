@@ -110,29 +110,29 @@ func GetIMDbTitle(id string) (gotgbot.InputMediaPhoto, [][]gotgbot.InlineKeyboar
 	}
 
 	if len(title.Genres) > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🎭 Gᴇɴʀᴇs:</b> <i>%s</i>\n", strings.Join(title.Genres, ", ")))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🔖𝙶𝚎𝚗𝚛𝚎 :-</b> <i>%s</i>\n", strings.Join(title.Genres, ", ")))
 	}
 
 	if title.Plot != "" {
-		captionBuilder.WriteString(fmt.Sprintf("<b>📋 Sᴛᴏʀy Lɪɴᴇ:</b> <tg-spoiler>%s<a href='%s'>..</a></tg-spoiler>\n", title.Plot, title.URL+"plotsummary"))
+		captionBuilder.WriteString(fmt.Sprintf("<b>📋𝙿𝚕𝚘𝚝 𝚘𝚏 𝚝𝚑𝚎 𝙼𝚘𝚟𝚒𝚎 :-</b> <tg-spoiler>%s<a href='%s'>..</a></tg-spoiler>\n", title.Plot, title.URL+"plotsummary"))
 	}
 
 	if len(title.Directors) > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🎥 Dɪʀᴇᴄᴛᴏʀ:</b> %s\n", htmlLinkList(title.Directors, " ")))
+		captionBuilder.WriteString(fmt.Sprintf("<b>🎥𝙳𝚒𝚛𝚎𝚌𝚝𝚘𝚛𝚜 :-</b> %s\n", htmlLinkList(title.Directors, " ")))
 	}
 
 	if len(title.Actors) > 0 {
-		captionBuilder.WriteString(fmt.Sprintf("<b>🎎 Aᴄᴛᴏʀs:</b> %s\n", htmlLinkList(title.Actors, " ")))
+		captionBuilder.WriteString(fmt.Sprintf("<b>👤𝙰𝚌𝚝𝚘𝚛𝚜 :-</b> %s\n", htmlLinkList(title.Actors, " ")))
 	}
 
 	if len(title.Writers) > 0 {
 		if str := htmlLinkList(title.Writers, " "); str != "" { // th writers field can contain companies whose names aren't available resulting in an empty string
-			captionBuilder.WriteString(fmt.Sprintf("<b>✍️ Wʀɪᴛᴇʀ:</b> %s\n", str))
+			captionBuilder.WriteString(fmt.Sprintf("<b>✍️𝚆𝚛𝚒𝚝𝚎𝚛𝚜 :-</b> %s\n", str))
 		}
 	}
 
 	if title.Trailer.URL != "" {
-		buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: fmt.Sprintf("🎞 IMDb Trailer (%s)", parseIMDbTrailerDuration(title.Trailer.Duration)), Url: title.Trailer.URL}})
+		buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: fmt.Sprintf("🎞 𝙸𝙼𝙳𝚋 𝚃𝚛𝚊𝚒𝚕𝚎𝚛(%s)", parseIMDbTrailerDuration(title.Trailer.Duration)), Url: title.Trailer.URL}})
 	}
 
 	photo = gotgbot.InputMediaPhoto{
@@ -180,7 +180,7 @@ func IMDbCommand(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 				photo = gotgbot.InputMediaPhoto{
 					Media:     gotgbot.InputFileByURL(imdbBanner),
-					Caption:   fmt.Sprintf("<i>👋 Hey <tg-spoiler>%s</tg-spoiler> I've got %d Results for you 👇</i>", mention(ctx.EffectiveUser), len(results.Results)),
+					Caption:   fmt.Sprintf("<i>👋 Hey <tg-spoiler>%s</tg-spoiler> I've got %d Results for you 👇 Join Our Main Channel 👉 @AM_FILMS</i>", mention(ctx.EffectiveUser), len(results.Results)),
 					ParseMode: gotgbot.ParseModeHTML,
 				}
 			}
